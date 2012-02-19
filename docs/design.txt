@@ -1,0 +1,38 @@
+Vector<T>
+
+//In-game World
+
+interface world.IObj
+interface world.IBuilding:	world.IObj
+class world.Cell:			world.IObj
+class world.Road:			world.IObj
+class world.PublicBuilding: world.IObj, world.IBuilding
+class world.Building: 		world.IObj, world.IBuilding
+	
+interface world.IObjVisitor
+
+//Graphics
+
+interface IRenderer
+class iso.Renderer:	world.IObjVisitor, IRenderer
+
+interface iso.IGraphicFactory
+class iso.GraphicFactory
+
+interface iso.IGraphic
+class iso.Polygon:	iso.IGraphic
+class iso.Quad:		iso.IGraphic
+class iso.Sprite:	iso.IGraphic
+
+class iso.Texture
+
+interface iso.IRasterizer
+class iso.Rasterizer:	iso.IRasterizer
+
+//Simulation
+
+interface ISimulator
+class Simulator:	world.IObjVisitor, ISimulator
+
+//UI
+
