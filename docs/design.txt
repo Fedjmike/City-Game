@@ -1,4 +1,4 @@
-Vector<T>
+Vector
 
 //In-game World
 
@@ -24,7 +24,9 @@ class iso.Polygon:	iso.IGraphic
 class iso.Quad:		iso.IGraphic
 class iso.Sprite:	iso.IGraphic
 
-class iso.Texture
+class iso.IPattern
+class iso.Pattern:	iso.IPattern
+class iso.Texture:	iso.IPattern
 
 interface iso.IRasterizer
 class iso.Rasterizer:	iso.IRasterizer
