@@ -1,6 +1,7 @@
 package city.iso;
 
-import city.Vector;
+import city.math.Vector;
+
 
 public interface IRasterizer {
 	public Vector getOrigin ();

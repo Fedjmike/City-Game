@@ -1,6 +1,6 @@
 package city.iso;
 
-import city.Vector;
+import city.math.Vector;
 
 public class Quad implements IGraphic {
 	/**

@@ -1,4 +1,5 @@
-Vector
+class math.Vector
+class math.FirstOrderBivariate
 
 //In-game World
 
@@ -18,8 +19,8 @@ class iso.Renderer:	world.IObjVisitor, IRenderer
 
 interface iso.IGraphicFactory
 class iso.GraphicFactory
-
 interface iso.IGraphic
+
 class iso.Polygon:	iso.IGraphic
 class iso.Quad:		iso.IGraphic
 class iso.Sprite:	iso.IGraphic

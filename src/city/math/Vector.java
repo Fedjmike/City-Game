@@ -1,4 +1,4 @@
-package city;
+package city.math;
 
 /**
  * An immutable 2D (effective) or 3D vector of doubles
@@ -59,14 +59,10 @@ public final class Vector {
 		return y;
 	}
 
-	
 	public double getZ () {
 		return z;
 	}
 	
-	/**
-	 * Get the length / magnitude of the vector
-	 */
 	public double getLength () {
 		return length;
 	}
@@ -91,18 +87,12 @@ public final class Vector {
 		return pitch;
 	}
 	
-	/**
-	 * Add this vector to another and return the new vector
-	 */
 	public Vector add (Vector r) {
 		return new Vector(getX()+r.getX(),
 						  getY()+r.getY(),
 						  getZ()+r.getZ());
 	}
 	
-	/**
-	 * Subtract a vector from this and return the new vector
-	 */
 	public Vector subtract (Vector r) {
 		return new Vector(getX()-r.getX(),
 						  getY()-r.getY(),
@@ -128,5 +118,19 @@ public final class Vector {
 	 */
 	public Vector scale (double factor) {
 		return new Vector(factor*getX(), factor*getY(), factor*getZ());
+	}
+	
+	public boolean equals (Vector r) {
+		return getX() == r.getX() && getY() == r.getY() &&
+			   getZ() == r.getZ();
+	}
+	
+	@Override
+	public String toString () {
+		if (getZ() == 0)
+			return "[" + getX() + ", " + getY() + "]";
+		
+		else
+			return "[" + getX() + ", " + getY() + ", " + getZ() + "]";
 	}
 }
