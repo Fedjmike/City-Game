@@ -16,9 +16,14 @@ public class TestIsoRasterizer extends JPanel {
         Shapes container = new Shapes();
         container.add(new Quad(
                 new Vector(0, 0),
-                new Vector(100, 0, 10),
-                new Vector(100, 100, 10),
+                new Vector(100, 0),
+                new Vector(100, 100),
                 new Vector(0, 100)));
+        container.add(new Quad(
+                new Vector(0, 0, 0),
+                new Vector(0, 100, 0),
+                new Vector(0, 100, 100),
+                new Vector(0, 0, 100)));
 
         //Render!
         container.accept(r);

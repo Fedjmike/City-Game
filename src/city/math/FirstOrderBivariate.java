@@ -91,15 +91,22 @@ public final class FirstOrderBivariate {
     }
 
     public Pair<Vector, Vector> solve (FirstOrderBivariate r) throws ComplexSolutionException {
+        System.out.println(this);
+        System.out.println(r);
+        
         //Cancel Bxy term
         FirstOrderBivariate E0, E1 = eliminateB(r);
 
-        //Is Cy term already cancelled?
-        if (getC() == 0 || r.getC() == 0) {
+        System.out.println(E1);
+        
+        //Is Cy term already cancelled (but not in the one we just produced)?
+        if ((getC() == 0 || r.getC() == 0) && E1.getC() != 0) {
             //Ax+Bxy+D = 0   (0)
             //A'x+C'y+D' = 0 (1)
             //Doesnt matter if one of Ax or Bxy is coincidentally gone in (0)
             E0 = eliminateC(r);
+            System.out.println("Cancel C");
+            System.out.println(E0);
 
             //(0)  =>       x = -D/(A+By) (2)
 
@@ -135,6 +142,8 @@ public final class FirstOrderBivariate {
             //Bxy+Cy+D = 0   (0)
             //A'x+C'y+D' = 0 (1)
             E0 = eliminateA(r);
+            System.out.println("Cancel A");
+            System.out.println(E0);
 
             //(0)  =>       y = -D/(Bx+C) (2)
 
