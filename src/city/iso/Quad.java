@@ -9,6 +9,8 @@ public class Quad implements IGraphic {
     private Vector[] points;
     private IPattern p;
 
+    //TODO: use one point plus two adjacent vectors, then calculate
+    //      the other three, to ensure coplanarity   
     public Quad (Vector ul, Vector ur, Vector ll, Vector lr,
             IPattern p) {
         points = new Vector[]{ul, ur, ll, lr};
@@ -28,6 +30,10 @@ public class Quad implements IGraphic {
         points[n] = p;
     }
 
+    public IPattern getPattern () {
+        return p;
+    }
+    
     @Override
     public void accept(IRasterizer r) {
         r.visit(this);

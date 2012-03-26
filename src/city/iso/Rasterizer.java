@@ -133,19 +133,20 @@ public class Rasterizer implements IRasterizer {
                 poly.getBounds().height+1,
                 BufferedImage.TYPE_4BYTE_ABGR);
         
-        WritableRaster wr = img.getRaster(); 
-
         for (int i = 0; i < img.getWidth(); i++) {
             for (int j = 0; j < img.getHeight(); j++) {
                 if (poly.contains(i+poly.getBounds().x, j+poly.getBounds().y)) {
                     Vector posIn = new Vector(i+poly.getBounds().x, j+poly.getBounds().y);
                     Vector posOut = unmapPointInQuad(points, posIn); 
-                    System.out.println(posIn.toString() + " to " + posOut.toString());
-                    wr.setPixel(i, j, new int[]{(int)(posOut.getX()*255), 0, (int)(posOut.getY()*255), 255});
+                    System.out.println(posIn + " to " + posOut +
+                            " as 0x" + Integer.toHexString(obj.getPattern().getColor(posOut)));
+                    img.setRGB(i, j, obj.getPattern().getColor(posOut));
                 }
             }
         }
-
+        
+        //TODO: Use PathIterator to finish off texture
+        
         g.drawImage(img, poly.getBounds().x, poly.getBounds().y, null);
         g.drawPolygon(poly);
     }

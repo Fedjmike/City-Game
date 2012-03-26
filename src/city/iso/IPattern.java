@@ -1,5 +1,7 @@
 package city.iso;
 
-public interface IPattern {
+import city.math.Vector;
 
+public interface IPattern {
+    int getColor (Vector pos);
 }
